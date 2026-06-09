@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>رزومه - عارف مهران‌زاده</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Vazirmatn", Tahoma, sans-serif;
+        background: #f0f2f5;
+        color: #1a1a2e;
+        line-height: 1.7;
+        font-size: 14px;
+      }
+
+      .page {
+        max-width: 860px;
+        margin: 30px auto;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      /* ===== HEADER ===== */
+      .header {
+        background: linear-gradient(
+          135deg,
+          #0f3460 0%,
+          #16213e 60%,
+          #1a1a2e 100%
+        );
+        color: #fff;
+        padding: 40px 48px 36px;
+        position: relative;
+        overflow: hidden;
+      }
+      .header::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        left: -60px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .header::after {
+        content: "";
+        position: absolute;
+        bottom: -40px;
+        right: -40px;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .header-inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .header-text {
+        flex: 1;
+      }
+      .avatar-wrapper {
+        flex-shrink: 0;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        border: 3px solid rgba(126, 200, 227, 0.6);
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+      }
+      .avatar-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .avatar-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 11px;
+        text-align: center;
+        padding: 10px;
+      }
+      .avatar-placeholder span {
+        font-size: 28px;
+      }
+      #photo-input {
+        display: none;
+      }
+      .name {
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+      }
+      .title-tag {
+        font-size: 15px;
+        color: #7ec8e3;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        font-size: 13px;
+        color: #c8d8e4;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .contact-item a {
+        color: #7ec8e3;
+        text-decoration: none;
+      }
+      .contact-item a:hover {
+        text-decoration: underline;
+      }
+      .icon {
+        font-size: 14px;
+      }
+
+      /* ===== BODY ===== */
+      .body {
+        display: flex;
+      }
+
+      .sidebar {
+        width: 250px;
+        flex-shrink: 0;
+        background: #f7f9fc;
+        padding: 32px 22px;
+        border-left: 1px solid #e8edf3;
+      }
+
+      .main {
+        flex: 1;
+        padding: 32px 36px;
+      }
+
+      /* ===== SECTION ===== */
+      .section {
+        margin-bottom: 30px;
+      }
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-title {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #0f3460;
+        margin-bottom: 14px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #0f3460;
+      }
+
+      /* ===== SKILLS ===== */
+      .skill-group {
+        margin-bottom: 14px;
+      }
+      .skill-group-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #555;
+        margin-bottom: 7px;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .tag {
+        background: #e8f0fe;
+        color: #0f3460;
+        border-radius: 20px;
+        padding: 3px 11px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .tag.green {
+        background: #e6f9f0;
+        color: #1a6b45;
+      }
+      .tag.purple {
+        background: #f0eaff;
+        color: #5c2d91;
+      }
+      .tag.gray {
+        background: #f0f2f5;
+        color: #555;
+      }
+
+      /* ===== TOOLS ===== */
+      .tool-list {
+        list-style: none;
+      }
+      .tool-list li {
+        padding: 4px 0;
+        font-size: 13px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tool-list li::before {
+        content: "▸";
+        color: #0f3460;
+        font-size: 10px;
+      }
+
+      /* ===== SOFT SKILLS ===== */
+      .soft-skill {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+        font-size: 13px;
+      }
+      .soft-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #0f3460;
+        flex-shrink: 0;
+      }
+
+      /* ===== LANGUAGE ===== */
+      .lang-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .lang-name {
+        font-size: 13px;
+        font-weight: 500;
+      }
+      .lang-bar {
+        width: 90px;
+        height: 5px;
+        background: #dde3ec;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .lang-fill {
+        height: 100%;
+        border-radius: 10px;
+        background: #0f3460;
+      }
+
+      /* ===== PROJECTS ===== */
+      .project-card {
+        border: 1px solid #e4e9f0;
+        border-radius: 10px;
+        padding: 16px 18px;
+        margin-bottom: 14px;
+        background: #fafbfd;
+        transition: box-shadow 0.2s;
+      }
+      .project-card:hover {
+        box-shadow: 0 3px 14px rgba(15, 52, 96, 0.1);
+      }
+      .project-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #0f3460;
+        margin-bottom: 5px;
+      }
+      .project-type {
+        font-size: 11px;
+        background: #0f3460;
+        color: #fff;
+        border-radius: 4px;
+        padding: 1px 8px;
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+      .project-desc {
+        font-size: 13px;
+        color: #555;
+        margin-bottom: 8px;
+      }
+
+      /* ===== EDUCATION ===== */
+      .edu-block {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .edu-icon {
+        width: 40px;
+        height: 40px;
+        background: #0f3460;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+
+      .edu-degree {
+        font-size: 15px;
+        font-weight: 700;
+        color: #1a1a2e;
+      }
+      .edu-uni {
+        font-size: 13px;
+        color: #555;
+      }
+      .edu-date {
+        font-size: 12px;
+        color: #999;
+        margin-top: 2px;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+        .page {
+          box-shadow: none;
+          margin: 0;
+          border-radius: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="header">
+        <div class="header-inner">
+          <div class="avatar-wrapper">
+            <img
+              src="./img/profile.png"
+              alt="عکس پروفایل"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="avatar-placeholder" style="display: none">
+              <span>👤</span>
+            </div>
+          </div>
+          <div class="header-text">
+            <div class="name">عارف مهران‌زاده</div>
+            <div class="title-tag">
+              توسعه‌دهنده فرانت‌اند | Front-End Developer
+            </div>
+            <div class="contact-row">
+              <div class="contact-item">
+                <span class="icon">📱</span>
+                <span>09160876328</span>
+              </div>
+              <div class="contact-item">
+                <span class="icon">✉️</span>
+                <a href="mailto:dev.arefmehranzadeh@gmail.com"
+                  >dev.arefmehranzadeh@gmail.com</a
+                >
+              </div>
+              <div class="contact-item">
+                <span class="icon">🐙</span>
+                <a href="https://github.com/MEHRANNOISE" target="_blank"
+                  >github.com/MEHRANNOISE</a
+                >
+              </div>
+              <div class="contact-item">
+                <span class="icon">📍</span>
+                <span>ایران</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BODY -->
+      <div class="body">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+          <!-- تکنولوژی‌ها -->
+          <div class="section">
+            <div class="section-title">مهارت‌های فنی</div>
+
+            <div class="skill-group">
+              <div class="skill-group-label">فریم‌ورک / کتابخانه</div>
+              <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">Chakra UI</span>
+                <span class="tag">Material UI</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-group-label">زبان‌های برنامه‌نویسی</div>
+              <div class="tags">
+                <span class="tag green">TypeScript</span>
+                <span class="tag green">JavaScript</span>
+                <span class="tag green">HTML5</span>
+                <span class="tag green">CSS3</span>
+                <span class="tag green">PHP</span>
+                <span class="tag green">SQL</span>
+                <span class="tag green">C++</span>
+                <span class="tag green">C#</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-group-label">ابزارها</div>
+              <div class="tags">
+                <span class="tag purple">Git</span>
+                <span class="tag purple">GitHub</span>
+                <span class="tag purple">VS Code</span>
+                <span class="tag purple">Figma</span>
+                <span class="tag purple">Postman / Bruno</span>
+                <span class="tag purple">XAMPP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- مهارت‌های نرم -->
+          <div class="section">
+            <div class="section-title">مهارت‌های نرم</div>
+            <div class="soft-skill">
+              <div class="soft-dot"></div>
+              کار تیمی در پروژه‌های واقعی
+            </div>
+            <div class="soft-skill">
+              <div class="soft-dot"></div>
+              حل مسئله
+            </div>
+            <div class="soft-skill">
+              <div class="soft-dot"></div>
+              مدیریت پروژه
+            </div>
+            <div class="soft-skill">
+              <div class="soft-dot"></div>
+              یادگیری سریع
+            </div>
+          </div>
+
+          <!-- زبان -->
+          <div class="section">
+            <div class="section-title">زبان</div>
+            <div class="lang-row">
+              <span class="lang-name">فارسی</span>
+              <div class="lang-bar">
+                <div class="lang-fill" style="width: 100%"></div>
+              </div>
+            </div>
+            <div class="lang-row">
+              <span class="lang-name">انگلیسی</span>
+              <div class="lang-bar">
+                <div class="lang-fill" style="width: 65%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN -->
+        <div class="main">
+          <!-- درباره -->
+          <div class="section">
+            <div class="section-title">درباره من</div>
+            <p style="font-size: 13.5px; color: #444; line-height: 1.9">
+              دانشجوی مهندسی کامپیوتر با تخصص در توسعه فرانت‌اند و تجربه همکاری
+              در سه پروژه تجاری واقعی. توانمند در طراحی و پیاده‌سازی رابط کاربری
+              با React و Next.js، دارای روحیه کار تیمی و علاقه‌مند به خلق تجربه
+              کاربری حرفه‌ای و بهینه.
+            </p>
+          </div>
+
+          <!-- تحصیلات -->
+          <div class="section">
+            <div class="section-title">تحصیلات</div>
+            <div class="edu-block">
+              <div class="edu-icon">🎓</div>
+              <div class="edu-info">
+                <div class="edu-degree">کارشناسی مهندسی کامپیوتر</div>
+                <div class="edu-uni">دانشگاه صنعتی جندی‌شاپور دزفول</div>
+                <div class="edu-date">
+                  ورودی ۱۴۰۲ — فارغ‌التحصیلی تقریبی ۱۴۰۶
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- پروژه‌های تجاری -->
+          <div class="section">
+            <div class="section-title">پروژه‌های تجاری</div>
+
+            <div class="project-card">
+              <div class="project-title">JSU — پیام‌رسان درون‌دانشگاهی</div>
+              <div class="project-type">پروژه تجاری — تیمی</div>
+              <div class="project-desc">
+                توسعه رابط کاربری پیام‌رسان اختصاصی دانشگاه شامل چت فردی و
+                گروهی؛ همچنین طراحی و پیاده‌سازی ماژول
+                <strong>بازارچه دانشجویی</strong> جهت ثبت آگهی، اشتراک‌گذاری
+                جزوه و نمایش مهارت‌های دانشجویان.
+              </div>
+              <div class="tags">
+                <span class="tag gray">React</span>
+                <span class="tag gray">TypeScript</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-title">لندینگ‌پیج فروش مصالح ساختمانی</div>
+              <div class="project-type">پروژه تجاری — تیمی</div>
+              <div class="project-desc">
+                طراحی صفحه فرود تجاری برای کسب‌وکار خرید و فروش مصالح ساختمانی؛
+                با تمرکز بر UI جذاب، سرعت بارگذاری و پاسخگویی در موبایل.
+              </div>
+              <div class="tags">
+                <span class="tag gray">Next.js</span>
+                <span class="tag gray">TypeScript</span>
+                <span class="tag gray">Tailwind CSS</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-title">وب‌اپلیکیشن مدیریت تولید پوشاک</div>
+              <div class="project-type">پروژه تجاری — تیمی</div>
+              <div class="project-desc">
+                توسعه داشبورد مدیریتی برای تجارت پوشاک؛ شامل معرفی سیستم، مدیریت
+                کاربران، نمایش اطلاعات تولید و رابط کاربری چندنقشه‌ای.
+              </div>
+              <div class="tags">
+                <span class="tag gray">Next.js</span>
+                <span class="tag gray">TypeScript</span>
+                <span class="tag gray">Tailwind</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
